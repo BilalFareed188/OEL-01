@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Home - Bilal Web</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg green position-fixed w-100">
+    <div class="container">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#product" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      category
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                      <li><a class="dropdown-item" href="#starter"></a>Starters</li>
+                      <li><a class="dropdown-item" href="#sweet">Sweet Dishes</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#feedbacks">Drop a Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#register">Register</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="container py-5" id="home">
+    <div class="row align-items-center">
+        <div class="col-md-6 mt-5">
+            <img src="./1.jpeg" class="w-100"/>
+        </div>
+        <div class="col-md-6">
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </p>
+        </div>
+    </div>
+</section>
+
+<section class="container py-5" id="product">
+    <div class="row align-items-center">
+        <div class="col-md-12">
+            <div class="grid" id="starter">
+                <!-- MIDDLE ROW --> 
+                <figure class="effect-slideleft">
+                    <img src="./2.jpeg" class="w-100"/>
+                    <figcaption class="p-5">
+                        <h2>Starters</h2>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </p>
+                    </figcaption>           
+                </figure>
+            </div>
+        </div>
+        <div class="col-md-12" id="sweet">
+            <div class="grid">
+                <!-- MIDDLE ROW --> 
+                <figure class="effect-slideleft">
+                    <img src="./3.jpeg" class="w-100"/>
+                    <figcaption class="p-5">
+                        <h2>Sweet Dishes</h2>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </p>
+                    </figcaption>           
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="container" id="feedbacks">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- <form action="#" name="commentForm"> -->
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="Email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Comment</label>
+                    <textarea class="form-control" name="comment" rows="5" id="userinput" placeholder="Your Comment...."></textarea>
+                </div>
+                <div class="mb-3">
+                    <input type="submit" value="Submit" class="btn-primary" id ="submitBtn">
+                </div>
+            <!-- </form> -->
+        </div>
+        <div class="col-md-12">
+            <p id="showComment"> 
+                
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="register">
+    <div id="registeration">
+        <br><h1>REGISTER</h1>
+        <form action="post" id="f" onsubmit ="verifyPassword()">
+            Fisrt Name <input type="text"><br>
+            Last Name <input type="text"><br>
+            Birth Date <input type="date"><br>
+            Email <input type="email"><br>
+            Passcode <input type="password" id="pswd"><br>
+            Confirm Passcode <input type="password"><br>
+            Gender <br>
+            <input type="radio" name="male" value="male">Male<br>
+            <input type="radio" name="female" value="female">Female<br>
+            <input type = "submit" value = "Submit">  
+        </form>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    var button = document.getElementById("submitBtn");
+    var input = document.getElementById("userinput");
+    var ul = document.querySelector("ul");
+    
+    button.addEventListener ("click", function() {
+        var commentData= userinput.value;
+        // console.log('data: ' + commentData);
+        document.getElementById('showComment').innerHTML = commentData;
+    }); 
+    function verifyPassword() {  
+      var pw = document.getElementById("pswd").value;  
+      //check empty password field  
+      if(pw == "") {  
+         document.getElementById("message").innerHTML = "**Fill the password please!";  
+         return false;  
+      }  
+       
+     //minimum password length validation  
+      if(pw.length < 8) {  
+         document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
+         return false;  
+      }  
+      
+    //maximum length of password validation  
+      if(pw.length > 15) {  
+         document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
+         return false;  
+      } else {  
+         alert("Password is correct");  
+      }  
+    }  
+</script>
+
+</body>
+</html>
